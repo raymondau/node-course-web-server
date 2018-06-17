@@ -1,6 +1,10 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
+// Heroku will set the port number. But in our machine it may not exist.
+// So we will get the env variable or set to 3000 if not exist.
+const port = process.env.Port || 3000;
+
 
 var app = express();
 
@@ -64,6 +68,8 @@ app.get('/bad', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+// Heroku will automatically set the port number in the environment variable
+// so we use it here instead of hardcoding it.
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
