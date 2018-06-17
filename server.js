@@ -3,7 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 // Heroku will set the port number. But in our machine it may not exist.
 // So we will get the env variable or set to 3000 if not exist.
-const port = process.env.Port || 3000;
+const port = process.env.PORT || 3000;
 
 
 var app = express();
@@ -26,11 +26,11 @@ app.use((req, res, next) => {
 
 // We can execute the below if the site is ever in maintenance mode,
 // else we can comment it out.
-app.use((req, res, next) => {
-    res.render('maintenance.hbs');
-});
+//app.use((req, res, next) => {
+//    res.render('maintenance.hbs');
+//});
 
-// The sequence where app.use is placed is important because it is
+// The location where app.use is placed is important because it is
 // executed in sequence. Hence the express.static page is placed
 // AFTER the maintenance app.use statement above.
 app.use(express.static(__dirname + '/public'));
