@@ -57,7 +57,13 @@ app.get('/', (req, res) => {
 // This is using template from hbs
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
-        pageTitle: 'About page',
+        pageTitle: 'About page'
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Project page'
     });
 });
 
